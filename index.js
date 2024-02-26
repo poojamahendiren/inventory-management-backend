@@ -17,7 +17,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://inventory-management-backend-ufj3.onrender.com" , "https://65dc78edc56064bd09ba2f84--incomparable-concha-b984e3.netlify.app/"],
+    credentials: true,
+  })
+);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
